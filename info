@@ -1,0 +1,19 @@
+usar o instanceof para verificar se a class Carro é uma instancia de veiculo;
+    exemplo console.log(Carro instanceof Veiculo);
+
+    Usar Notação ponto ( . ) para acessar atributos;
+
+    exibir atributo atraves de function;
+
+    function exibeAtributo(nomeAtributo) {
+    console.log(nomeAtributo)};
+
+    exibeAtributo(parametros) == recebe o atributo;
+
+    para verificar se um atributo existe mesmo se estiver vazio utilizamos o ( in ) no if;
+
+    para tornar um objeto imutavel usamos o freeze por meio do object.freeze(objeto)
+
+    object.keys(objetos) mostram todas as variaveis dentro do construtor (.lenght para saber quantos atributos o 
+    construtor tem.)
+    object.value(objetos) para saber os valores dos atributos

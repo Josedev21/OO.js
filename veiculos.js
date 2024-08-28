@@ -3,48 +3,68 @@
  * 
     *A Subclass Carro recebe informações mais detalhadas sobre o tipo do veiculo;
     *A Subclass Moto recebe informações mais detalhadas sobre o tipo do veiculo;   
+
+    *O metodo precoVeiculo informa o valor do veiculo antes do desconto
  */
 
-    function Veiculo(nome, modelo) {
+    //função construtora
+    function Veiculo(nome, modelo, preco) {
         this.nome = nome;
         this.modelo = modelo;
+        let _preco = preco;
+
+        this.getPreco = function () {
+            return _preco
+        }
+
+        this.setPreco = function (valor) {
+            if(typeof valor === 'number') {
+                _preco = valor
+            }
+        }
+
+        this.descontoPreco = function() {
+            let valorDesconto = (_preco * 1.2) / 100
+            _preco = _preco - valorDesconto
+            console.log(_preco)
+        }
+
         this.infoVeiculo = function() {
-            console.log(`Seu Veiculo é um ${nome} ${modelo}`)
+            console.log(`Seu Veiculo é um ${modelo} da ${nome}`)
         }
 
     }
 
     function Carro(nome, modelo, motor, ano, preco) {
         this.motor = motor;
-        this.ano = ano;
-        this.preco = preco;
+        this.ano = ano; //this se refere ao Carro
         
-        this.precoVeiculo = function() {
-            console.log('R$' + this.preco)
-        }
-
-        Veiculo.call(this, nome, modelo)
+        Veiculo.call(this, nome, modelo, preco) //this se refere ao veiculo
     }
 
     function Moto(nome, modelo, motor, ano, preco) {
         this.motor = motor;
         this.ano = ano;
-        this.preco = preco;
 
-        this.precoVeiculo = function() {
-            console.log('R$' + this.preco)
-        }
-
-        Veiculo.call(this, nome, modelo)
+        Veiculo.call(this, nome, modelo, preco)
     }
 
-    const Carro1 = new Carro('Volksvagem', 'Golf', '1.6 Turbo', 2022, 100000);
-    const Moto1 = new Moto('BMW', 'GS1200', '4 tempos', 2023, 65000)
+    function Bmw(modelo, motor, ano, preco) {
+        Carro.call(this, "BMW", modelo, motor, ano, preco)
+    } 
 
-    console.log(Carro1)
-    Carro1.precoVeiculo();
-    console.log(Moto1)
-    Moto1.precoVeiculo();
+    //instancias
+    //Carros
+    const Carro1 = new Carro('Volksvagem', 'Golf', '1.6 Turbo', 2022, 100000);
+    const Carro2 = new Bmw('320i','2.0 turbo', 2023, 200000 );
+    //Motos
+    const Moto1 = new Moto('BMW', 'GS1200', '4 tempos', 2023, 65000);
+
+    //MELHORAR O CODIGO
+
+    //Chamadas
+    console.log(Moto1.descontoPreco())
+
 
 
 

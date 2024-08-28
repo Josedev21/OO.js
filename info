@@ -7,9 +7,8 @@ usar o instanceof para verificar se a class Carro é uma instancia de veiculo;
 
     function exibeAtributo(nomeAtributo) {
     console.log(nomeAtributo)};
-
     exibeAtributo(parametros) == recebe o atributo;
-
+    
     para verificar se um atributo existe mesmo se estiver vazio utilizamos o ( in ) no if;
 
     para tornar um objeto imutavel usamos o freeze por meio do object.freeze(objeto)

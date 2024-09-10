@@ -114,6 +114,10 @@
         mostrarChamadas(veiculo)
     });
 
+    // veiculos.forEach(function(item) {    <----  são usaados normalmente 3 parametros item, index, e array
+    //     console.log(item)
+    // })
+
     
 
 
